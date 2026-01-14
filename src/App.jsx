@@ -83,7 +83,7 @@ function App() {
 
     try {
       const response = await axios[method](url, productData);
-      console.log('response:', response);
+      
       getProducts();
       closeModal();
     }catch(error){
