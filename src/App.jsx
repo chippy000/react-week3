@@ -94,8 +94,10 @@ function App() {
   const delProduct = async(id) => {
     try{
       const response = await axios.delete(
-        `${API_BASE}/api/${API_PATH}/admin/product/${id}`
+        `${VITE_API_BASE}/api/${VITE_API_PATH}/admin/product/${id}`
       )
+      getProducts();
+      closeModal();
     }catch(error){
       console.log(error.response);
       
@@ -496,7 +498,7 @@ function App() {
                  modalType === 'delete' ? (<button
                     type="button"
                     className="btn btn-danger"
-                    onClick={()=>delProduct()}
+                    onClick={()=>delProduct(templateProduct.id)}
                     >
                     刪除
                     </button>) : (<>
